@@ -52,34 +52,34 @@ create table prenom_employe(
 
 -- seed
 
-INSERT INTO prenom (id, prenom) VALUES
-(1, 'Eric'),
-(2, 'Jean'),
-(3, 'Luc'),
-(4, 'Marie'),
-(5, 'Claire'),
-(6, 'Sophie'),
-(7, 'Thomas'),
-(8, 'Paul'),
-(9, 'Henri'),
-(10, 'Charles');
+INSERT INTO prenom (prenom) VALUES
+( 'Eric'),
+( 'Jean'),
+( 'Luc'),
+( 'Marie'),
+( 'Claire'),
+( 'Sophie'),
+( 'Thomas'),
+( 'Paul'),
+( 'Henri'),
+('Charles');
 
-INSERT INTO service (id, nom) VALUES
-(1, 'Informatique'),
-(2, 'Comptabilité'),
-(3, 'Production');
+INSERT INTO service (nom) VALUES
+('Informatique'),
+('Comptabilité'),
+('Production');
 
-INSERT INTO section (id, idService, nom) VALUES
-(1, 1, 'Études'),
-(2, 1, 'Production'),
-(3, 3, 'Assemblage');
+INSERT INTO section (idService, nom) VALUES
+(1, 'Études'),
+(1, 'Production'),
+(3, 'Assemblage');
 
-INSERT INTO employe (id, idService, idSection, nom, email, telephone) VALUES
-(1, 1, 1, 'Dupont', 'eric.dupont@entreprise.be', '4814'),       -- Eric (chef Informatique)
-(2, 1, 2, 'Martin', 'marie.martin@entreprise.be', NULL),        -- Sans téléphone (dépend d'Eric)
-(3, 2, NULL, 'Bernard', 'sophie.bernard@entreprise.be', '4820'),-- Chef Comptabilité (pas de section)
-(4, 2, NULL, 'Petit', 'thomas.petit@entreprise.be', NULL),      -- Sans téléphone (dépend de Sophie)
-(5, 3, 3, 'Durand', 'paul.durand@entreprise.be', '4855');
+INSERT INTO employe (idService, idSection, nom, email, telephone) VALUES
+(1, 1, 'Dupont', 'eric.dupont@entreprise.be', '4814'),       -- Eric (chef Informatique)
+(1, 2, 'Martin', 'marie.martin@entreprise.be', NULL),        -- Sans téléphone (dépend d'Eric)
+(2, NULL, 'Bernard', 'sophie.bernard@entreprise.be', '4820'),-- Chef Comptabilité (pas de section)
+(2, NULL, 'Petit', 'thomas.petit@entreprise.be', NULL),      -- Sans téléphone (dépend de Sophie)
+(3, 3, 'Durand', 'paul.durand@entreprise.be', '4855');
 
 -- Attribution des chefs de service
 UPDATE service SET idChef = 1 WHERE id = 1; -- Eric chef de l'Informatique
